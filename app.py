@@ -15,7 +15,7 @@ def predict():
     text = request.form['text']
 
     output = newsaccuracy(title,text)
-    return render_template('index.html',prediction_text = f'the news is detected to be:  {output[0]}')
+    return render_template('index.html',prediction_text = f'{output[0]}')
 
 if __name__ == "__main__":
     app.run(debug=False)
