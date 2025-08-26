@@ -2,21 +2,84 @@
 <html>
 <head>
   <title>FAKE NEWS DETECTOR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 120px;
+      max-height: 300px;
+    }
+    button {
+      padding: 12px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e9ecef;
+      border-radius: 4px;
+      min-height: 40px;
+      font-size: 16px;
+      white-space: pre-wrap; /* preserve whitespace/line breaks */
+    }
+  </style>
 </head>
 <body>
   <h2>FAKE NEWS DETECTOR</h2>
+  
   <form action="/predict" method="post">
+    <label for="title">Title of news article:</label>
+    <input type="text" id="title" name="title" required placeholder="Enter the full title here">
     
-    Title of news article: <input type="text" name="title" required><br>
-    content of news article: <input type="text" name="text"  required><br>
+    <label for="text">Content of news article:</label>
+    <textarea id="text" name="text" required placeholder="Enter the full article content here"></textarea>
     
     <button type="submit">Predict</button>
   </form>
-
+  
   <h3>Prediction Result:</h3>
   <div class="result">
-{{prediction_text}}
-</div>
-
+    {{prediction_text}}
+  </div>
+  
 </body>
 </html>
